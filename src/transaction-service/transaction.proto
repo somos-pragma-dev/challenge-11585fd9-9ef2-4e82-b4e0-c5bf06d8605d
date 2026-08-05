@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package transaction;
+
+service TransactionService {
+	rpc ProcessTransaction (TransactionRequest) returns (TransactionResponse);
+}
+
+message TransactionRequest {
+	string idempotency_key = 1;
+	string transaction_details = 2;
+}
+
+message TransactionResponse {
+	string message = 1;
+}
